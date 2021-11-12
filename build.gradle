@@ -1,0 +1,15 @@
+
+allprojects {
+    group = 'com.dogcue'
+
+    repositories {
+        mavenCentral()
+    }
+    
+}
+
+
+subprojects {
+    
+    
+}

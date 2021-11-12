@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+    customer-post:
+        container_name: customer-post
+        image: dogcue/microservice-customer-post
+        ports:
+            - 8080:8080
+            - 9090:9090
+        networks:
+            - dogcue-network
+        environment:
+            - JAVA_OPTS=
+                -Xms256M
+                -Xmx256M
+    customer-get:
+        container_name: customer-get
+        image: dogcue/microservice-customer-get
+        ports:
+            - 8081:8081
+        networks:
+            - dogcue-network
+        environment:
+            - NETWORK=customer-post
+            - JAVA_OPTS=
+                -Xms256M
+                -Xmx256M
+        depends_on: 
+            - customer-post
+            
+
+networks:
+    dogcue-network:
+        driver: bridge

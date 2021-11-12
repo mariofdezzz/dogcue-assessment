@@ -1,0 +1,5 @@
+rootProject.name = 'dogcue'
+
+include ':customerPost'
+include ':customerGet'
+
